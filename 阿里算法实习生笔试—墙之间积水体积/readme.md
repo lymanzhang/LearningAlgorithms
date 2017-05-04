@@ -1,20 +1,24 @@
-## 阿里算法实习生笔试——墙之间积水体积
+## 阿里算法实习生笔试——墙之间积水体积[链接](http://www.jianshu.com/p/b554ed980b19)
 ![墙之间积水体积](https://github.com/lymanzhang/LearningAlgorithms/blob/master/%E9%98%BF%E9%87%8C%E7%AE%97%E6%B3%95%E5%AE%9E%E4%B9%A0%E7%94%9F%E7%AC%94%E8%AF%95%E2%80%94%E5%A2%99%E4%B9%8B%E9%97%B4%E7%A7%AF%E6%B0%B4%E4%BD%93%E7%A7%AF/volume.jpg)
 
 ### 初步分析
 
 - 情况1：未遇到全局最大值之前
-该情况只需要保存现在的截止目前的临时最大值tempMax，然后积水体积是tempMax-height[i]。
+该情况只需要保存现在的截止目前的临时最大值tempMax，然后积水体积是tempMax-height[i]。   
+
 ![情况1](https://github.com/lymanzhang/LearningAlgorithms/blob/master/%E9%98%BF%E9%87%8C%E7%AE%97%E6%B3%95%E5%AE%9E%E4%B9%A0%E7%94%9F%E7%AC%94%E8%AF%95%E2%80%94%E5%A2%99%E4%B9%8B%E9%97%B4%E7%A7%AF%E6%B0%B4%E4%BD%93%E7%A7%AF/situation2.jpg)
 
-- 情况2：已经遍历过了全局最大值，后面的数值虽然有局部极值，但没有再出现全局最大值
+- 情况2：已经遍历过了全局最大值，后面的数值虽然有局部极值，但没有再出现全局最大值   
+
 ![情况2](https://github.com/lymanzhang/LearningAlgorithms/blob/master/%E9%98%BF%E9%87%8C%E7%AE%97%E6%B3%95%E5%AE%9E%E4%B9%A0%E7%94%9F%E7%AC%94%E8%AF%95%E2%80%94%E5%A2%99%E4%B9%8B%E9%97%B4%E7%A7%AF%E6%B0%B4%E4%BD%93%E7%A7%AF/situation3.jpg)
 
 - 情况3：已经遇到全局最大值，但是遇到了第二个极值比之前遇到的第一个极值要大，那么积水的体积就是全局最大值和第二次的遇到的极值（即次大值）之间的容积了
-总结情况2和情况3，在第三次遇到的极值要和次大值比较。
+总结情况2和情况3，在第三次遇到的极值要和次大值比较。   
+
 ![情况3](https://github.com/lymanzhang/LearningAlgorithms/blob/master/%E9%98%BF%E9%87%8C%E7%AE%97%E6%B3%95%E5%AE%9E%E4%B9%A0%E7%94%9F%E7%AC%94%E8%AF%95%E2%80%94%E5%A2%99%E4%B9%8B%E9%97%B4%E7%A7%AF%E6%B0%B4%E4%BD%93%E7%A7%AF/situation4.jpg)
 
-- 情况4：其实这里和情况1是一样的
+- 情况4：其实这里和情况1是一样的   
+
 为什么这里会列出来这个呢？   
 
 因为题目要求只能遍历一次数组，我们不确定在一次遍历的过程中是不是还能碰到全局最大值，所以，这里考虑局部极值和全局最大值的关系就显得尤为重要。   
